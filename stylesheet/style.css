@@ -169,13 +169,13 @@ button:focus {
   margin-bottom:10px;
   margin-right:10px;
   
+  
 }
 .controls {
   position:absolute;
   width:33%;
   height:33%;
   background-color:#3CB371;
-  
 }
 .up {
   left:33%;
