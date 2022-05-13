@@ -23,7 +23,7 @@ this.food=document.getElementById("food");
 Snake.prototype.createBody=function() {
   var newBody=document.createElement("div");
   newBody.setAttribute("class","body");
-  newBody.setAttribute("id","body"+this.body.length+1);
+  newBody.setAttribute("id","body"+(this.body.length+1));
   
     switch (this.direction) {
     case "right":
@@ -221,7 +221,7 @@ Snake.prototype.reset = function() {
 
 
 //EventListeners and handlers
-document.getElementById("start-resume").addEventListener("click", function() {
+document.getElementById("start-resume").addEventListener("click", function(e) {
   if(!snakeObject) {
     snakeObject=new Snake();
     snakeObject.generateFood();
@@ -242,7 +242,8 @@ document.getElementById("pause").addEventListener("click", function() {
   snakeObject.moving=null;
 })
 
-document.getElementById("canvas").addEventListener("keydown", function(e){
+//use eventlistener on document level instead of canvas element because some quirks where some keydown events not registering.
+document.addEventListener("keydown", function(e){
   snakeObject.changeDirection(e);
 });
 
